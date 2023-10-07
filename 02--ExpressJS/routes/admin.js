@@ -1,5 +1,6 @@
 const path = require('path');
 const express = require('express');
+const parentDirectory = require('../util/path');
 
 const router = express.Router();
 // Same paths can be used but should be used as a filter
@@ -18,7 +19,7 @@ router.post('/add-product', (req, res, next) => {
 	// Req is undefined by default, so we need to parse it
 	const { body } = req;
 	console.log(body);
-	res.sendFile(path.resolve('02--ExpressJS', 'views', 'add-product.html'));
+	res.sendFile(path.resolve(parentDirectory, 'views', 'add-product.html'));
 	res.redirect('/');
 });
 module.exports = router;

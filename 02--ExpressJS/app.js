@@ -1,6 +1,9 @@
 const path = require('path');
 const http = require('http');
 
+const parentDirectory = require('./util/path');
+
+console.log(parentDirectory);
 const express = require('express');
 const app = express();
 
@@ -13,7 +16,7 @@ app.use(shopRoutes);
 
 // Catch-all Route
 app.use((req, res, next) => {
-	res.sendFile(path.resolve('02--ExpressJS', 'views', '404.html'));
+	res.sendFile(path.resolve(parentDirectory, 'views', '404.html'));
 });
 
 const server = http.createServer(app);
