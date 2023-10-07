@@ -18,7 +18,7 @@ router.get('/add-product', (req, res, next) => {
 router.post('/add-product', (req, res, next) => {
 	// Req is undefined by default, so we need to parse it
 	const { body } = req;
-	console.log(body);
+
 	res.sendFile(path.resolve(parentDirectory, 'views', 'add-product.html'));
 	res.redirect('/');
 });

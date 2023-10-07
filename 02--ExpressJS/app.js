@@ -11,6 +11,7 @@ const adminRoutes = require('./routes/admin');
 const shopRoutes = require('./routes/shop');
 app.use(express.urlencoded({ extended: true }));
 
+app.use(express.static(parentDirectory + '/css'));
 app.use('/admin', adminRoutes);
 app.use(shopRoutes);
 
