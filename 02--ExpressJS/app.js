@@ -9,11 +9,13 @@ const app = express();
 
 const adminRoutes = require('./routes/admin');
 const shopRoutes = require('./routes/shop');
+const userRoutes = require('./routes/users');
 app.use(express.urlencoded({ extended: true }));
 
 app.use(express.static(parentDirectory + '/css'));
 app.use('/admin', adminRoutes);
 app.use(shopRoutes);
+app.use('/users', userRoutes);
 
 // Catch-all Route
 app.use((req, res, next) => {
