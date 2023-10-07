@@ -5,11 +5,14 @@ const app = express();
 
 app.use('/user', (req, res, next) => {
 	res.send('<h1>Welcome Users</h1>');
+	next();
 });
 
 app.use('/', (req, res, next) => {
 	res.send('<h1>Welcome!</h1>');
+	next();
 });
+
 const server = http.createServer(app);
 
 server.listen(3000);
