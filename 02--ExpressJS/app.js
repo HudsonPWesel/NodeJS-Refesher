@@ -1,3 +1,4 @@
+const path = require('path');
 const http = require('http');
 
 const express = require('express');
@@ -12,7 +13,7 @@ app.use(shopRoutes);
 
 // Catch-all Route
 app.use((req, res, next) => {
-	res.status(404).send('<h1>Page Not Found!</h1>');
+	res.sendFile(path.resolve('02--ExpressJS', 'views', '404.html'));
 });
 
 const server = http.createServer(app);

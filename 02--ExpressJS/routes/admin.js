@@ -1,3 +1,4 @@
+const path = require('path');
 const express = require('express');
 
 const router = express.Router();
@@ -17,6 +18,7 @@ router.post('/add-product', (req, res, next) => {
 	// Req is undefined by default, so we need to parse it
 	const { body } = req;
 	console.log(body);
+	res.sendFile(path.resolve('02--ExpressJS', 'views', 'add-product.html'));
 	res.redirect('/');
 });
 module.exports = router;
