@@ -1,15 +1,19 @@
 const express = require('express');
 
 const router = express.Router();
+// Same paths can be used but should be used as a filter
+
+// route: /admin/add-product | GET
 
 router.get('/add-product', (req, res, next) => {
 	res.send(
-		'<form action="/product" method="POST"><input type="text" name="title"><button type="submit">Add Product</button></input></form>'
+		'<form action="/admin/add-product" method="POST"><input type="text" name="title"><button type="submit">Add Product</button></input></form>'
 	);
-	// next();
 });
 
-router.use('/product', (req, res, next) => {
+// route: /admin/add-product | POST
+
+router.post('/add-product', (req, res, next) => {
 	// Req is undefined by default, so we need to parse it
 	const { body } = req;
 	console.log(body);
