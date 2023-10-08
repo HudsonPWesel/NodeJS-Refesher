@@ -6,6 +6,7 @@ const parentDirectory = require('./util/path');
 console.log(parentDirectory);
 const express = require('express');
 const app = express();
+const sequelize = require('./database');
 
 const adminRoutes = require('./routes/admin');
 const shopRoutes = require('./routes/shop');
@@ -23,4 +24,14 @@ app.use((req, res, next) => {
 });
 
 const server = http.createServer(app);
+
+sequelize
+	.sync()
+	.then(res => {
+		// console.log(res);
+	})
+	.catch(err => {
+		console.log(err);
+	});
+
 server.listen(3000);

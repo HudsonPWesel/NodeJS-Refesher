@@ -1,20 +1,21 @@
-const db = require('../database');
-module.exports = class Product {
-	constructor(id, title, price, description, imageUrl) {
-		this.id = id;
-		this.title = title;
-		this.price = price;
-		this.description = description;
-		this.imageUrl = imageUrl;
-	}
+const Sequelize = require('sequelize');
 
-	save() {}
+const sequelize = require('../database');
 
-	static deleteById(id) {}
+const Product = sequelize.define('product', {
+	id: {
+		type: Sequelize.INTEGER,
+		autoIncrement: true,
+		allowNull: false,
+		primaryKey: true,
+	},
+	title: Sequelize.STRING,
+	price: {
+		type: Sequelize.DOUBLE,
+		allowNull: false,
+	},
+	imageUrl: { type: Sequelize.STRING, allowNull: false },
+	description: { type: Sequelize.STRING, allowNull: false },
+});
 
-	static fetchAll() {
-		return db.execute('SELECT * FROM products');
-	}
-
-	static findById(id) {}
-};
+module.exports = Product;
