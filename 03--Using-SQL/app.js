@@ -10,8 +10,6 @@ const app = express();
 const adminRoutes = require('./routes/admin');
 const shopRoutes = require('./routes/shop');
 const userRoutes = require('./routes/users');
-const db = require('../03--Using-SQL/database.js');
-
 app.use(express.urlencoded({ extended: true }));
 
 app.use(express.static(parentDirectory + '/css'));
